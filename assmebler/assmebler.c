@@ -15,6 +15,7 @@ int main()
 	printf("%d \n",comparisoninttwo(1, 2));
 	printf("%d \n", remainder(12,5));
 	printf("%d \n", multp_asm(2,5));
+	printf("%d \n", delen_asm(6, 3));
 
 
 }
@@ -73,13 +74,21 @@ int multp_asm(int a, int b) {
 	_asm {
 		mov eax, a
 		mov ebx, b
+
 		imul eax, ebx
 		mov a, eax
 	}
 	return a; 
 }
 int delen_asm(int a, int b) {
-	return a / b; 
+	_asm {
+		mov eax, a
+		mov ebx, b
+		mov edx, 1
+		idiv ebx
+		mov a, ebx
+	}
+	return a; 
 }
 int comparisoninttwo_asm(int a, int b) {
 	if (a > b)
