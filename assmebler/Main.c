@@ -13,7 +13,7 @@ int main()
 	//printf("%d \n", delen_asm(6, 3));
 	//printf("%d \n", comparisoninttwo_asm(3, 3));
 	FILE* fp = NULL;
-	fp = fopen("");
+	fp = fopen("C:/Users/НаумовСА/source/repos/assmebler/assmebler/1.xlsx", "w+t");
 
 	int a = 3; 
 	int b = 4;
