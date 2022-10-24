@@ -12,58 +12,111 @@ int main()
 	//printf("%d \n", comparisoninttwo_asm(5, 5));
 	//printf("%d \n", delen_asm(6, 3));
 	//printf("%d \n", comparisoninttwo_asm(3, 3));
-	int a = 3;
+	FILE* fp = NULL;
+	fp = fopen("");
+
+	int a = 3; 
 	int b = 4;
 	int c = 7;
-	int _i = 10000000;
-	for (size_t i = 0; i < _i; i++)
+	int _i = 100000;
+	double time_spent = 0.0;
+	clock_t begin = clock();
+	for (size_t i = 0; i < 100000; i++)
 	{
 		sum(a, b);
+
 	}
+	clock_t end = clock();
+	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+	//printf("The elapsed time is %f seconds \n", time_spent);
+
+	begin = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
-		 minus(a, b);
+		minus(a, b);
 	}
+	end = clock();
+	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+	begin = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		multp(a, b);
 	}
+	end = clock();
+	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+	begin = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		delen(a, b);
 	}
+	end = clock();
+	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+	begin = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		comparisoninttwo(a, b);
 	}
+	end = clock();
+	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+	begin = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		comparisonintthree(a, b,c);
 	}
+	end = clock();
+	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+	begin = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		sum_asm(a, b);
 	}
+	end = clock();
+	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+	begin = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		minus_asm(a, b);
 	}
+	end = clock();
+	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+	begin = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		multp_asm(a, b);
 	}
+	end = clock();
+	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+	begin = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		delen_asm(a, b);
 	}
+	end = clock();
+	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+	begin = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		comparisoninttwo_asm(a, b);
 	}
+	end = clock();
+	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+	begin = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		comparisonintthree_asm(a, b, c);
 	}
+	end = clock();
+	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
 }
 
 
