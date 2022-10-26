@@ -7,11 +7,12 @@ int main()
 {
 	system("chcp 1251 >null");
 	//printf("%d \n",comparisoninttwo(1, 2));
-	//printf("%d \n", remainder(12,5));
+	//printf("%d \n", remainder_asm(12,5));
 	//printf("%d \n", multp_asm(2,5));
-	//printf("%d \n", comparisoninttwo_asm(5, 5));
+	comparisoninttwo_asm(1, 5);
 	//printf("%d \n", delen_asm(6, 3));
-	//printf("%d \n", comparisoninttwo_asm(3, 3));
+	//printf("%d \n", comparisonintthree_asm(2, 3,3));
+
 	FILE* fp = NULL;
 	fp = fopen("C:/Users/НаумовСА/source/repos/assmebler/assmebler/1.xlsx", "w+t");
 
