@@ -28,7 +28,6 @@ int multp_asm(int a, int b) {
 		imul eax, ebx
 		mov a, eax
 	}
-	printf("Сравнение 2 3123чисел: %d\n", a);
 	return a;
 }
 int delen_asm(int a, int b) {
@@ -64,8 +63,7 @@ int comparisoninttwo_asm(int a, int b) {
 			jmp exit
 			exit :
 	}
-	a = 5;
-	printf("Сравнение 2 чисел: %d\n", a);
+	return a;
 }
 int comparisonintthree_asm(int a, int b, int c) {
 	_asm {

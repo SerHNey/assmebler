@@ -2,7 +2,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <time.h>
 #include <malloc.h>
-#include <stdlib.h>
 #include <string.h> 
 #include <stdio.h>     
 
