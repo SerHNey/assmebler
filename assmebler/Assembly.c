@@ -66,56 +66,56 @@ int comparisoninttwo_asm(int a, int b) {
 	return a;
 }
 int comparisonintthree_asm(int a, int b, int c) {
-	_asm {
-		//mov eax, a	
-		//mov ebx, b
-		//cmp eax, ebx
-		//jg  L1  // Переход если больше  op1 > op2
-		//
-		//jl  L2 //  Переход если меньше  op1 < op2
-		//je  L3 //  Переход если равно  op1 = op2
-		//     L1:
-		//mov eax, 2
-		//jmp _exit
-
-		//	L2:
-		//mov eax, 1
-		//jmp _exit
-
-		//	L3:
-		//mov eax, 0
-		//jmp _exit
-
-		//	_exit:
-		//mov a, eax
-		//leave
-		//ret
+	_asm
+	{
 		mov eax, a
 		mov ebx, b
-		cmp 		eax, ebx
-		jg L2
-		mov 		eax, 1
-		jmp L3
-		L2:
-		mov 		eax, 2
-			L3 :
-			mov a, eax
-			leave
-			ret
+		mov ecx, c
+		cmp eax, ebx
+		je equal
+		jg greater
+		jmp less
+
+
+		equal :
+		cmp eax, ecx
+			je equal2
+			jg greater2
+			jmp less2
+
+			greater :
+		cmp eax, ecx
+			je equal2
+			jg greater2
+			jmp less2
+
+			less :
+		cmp ebx, ecx
+			je equal2
+			jg greater3
+			jmp less2
+
+
+
+		equal2:
+		mov a, 0
+			jmp exit
+
+			greater2 :
+		mov a, 1
+			jmp exit
+
+			less2 :
+		mov a, 3
+			jmp exit
+
+			greater3 :
+		mov a, 2
+			jmp exit
+
+			exit :
 	}
 	return a;
-
-
-
-
-	//if ((a >= b) && (a >= c))
-	//	return 1;
-	//else if ((b >= a) && (b >= c))
-	//	return 2;
-	//else if ((c >= a) && (c >= b))
-	//	return 3;
-	//else if (a == b && b == c)
-	//	return 0;
 }
 int remainder_asm(int a, int b) {
 	_asm {
@@ -127,9 +127,19 @@ int remainder_asm(int a, int b) {
 	}
 	return a;
 }
-int* Swap_C_asm(int* a, int i, int _i) {
-
-	int n = a[i];
-	a[i] = _i;
-	a[_i] = n;
+int* Swap_C_asm(int* massiv, int m, int mm) {
+	int a = massiv[m], b = massiv[mm];
+	_asm
+	{
+		mov eax, a
+		mov ebx, b
+		mov ecx, eax
+		mov ebx, eax
+		mov ebx, ecx
+		mov a, eax
+		mov b, ebx
+	}
+	massiv[m] = a;
+	massiv[mm] = b;
+	return massiv;
 }
