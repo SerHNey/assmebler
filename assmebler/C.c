@@ -25,7 +25,7 @@ int comparisonintthree(int a, int b, int c) {
 int remainder(int a, int b) {
 	return a % b;
 }
-int* Swap_C(int* a, int i, int _i) {
+int* change_C(int* a, int i, int _i) {
 	int n = a[i];
 	a[i] = _i;
 	a[_i] = n;

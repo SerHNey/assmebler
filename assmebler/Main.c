@@ -3,140 +3,123 @@
 
 #include "Source.h"
 
-int write() {
-	
-		time_t start, end;
-		volatile long unsigned t;
-
-		start = time(NULL);
-		for (size_t i = 0; i < 10000000; i++)
-		{
-			sum(5, 2);
-		}
-		end = time(NULL);
-		printf("Цикл использовал %f секунд.\n", difftime(end, start));
-
-		return 0;
-	
-}
 
 int main()
 {
 	
 	system("chcp 1251 >null");
-	write();
-	printf("%d \n",comparisoninttwo(1, 2));
-	printf("%d \n", remainder_asm(12,5));
-	printf("%d \n", multp_asm(2,5));
-	printf("%d \n", comparisoninttwo_asm(1, 5));
-	printf("%d \n", delen_asm(6, 3));
-	printf("%d \n", comparisonintthree_asm(2, 3,3));
-
-
-
 	int a = 3; 
 	int b = 4;
 	int c = 7;
-	int _i = 100000;
-	double time_spent = 0.0;
-	clock_t begin = clock();
-	for (size_t i = 0; i < 100000; i++)
+	int _i = 1000000;
+	int* m = calloc(2, sizeof(int));
+
+	int s = clock();
+	for (size_t i = 0; i < _i; i++)
 	{
 		sum(a, b);
-
 	}
-	clock_t end = clock();
-	time_spent = (double)(end - begin);
-	printf("Сумма %f\n", time_spent);
+	int e = clock();
 
-	begin = clock();
+	printf("Сумма %d\n", e);
+
+	s = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		minus(a, b);
 	}
-	end = clock();
-	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("Разность %f\n", time_spent);
-	begin = clock();
+	e = clock();
+
+	printf("Разность %d\n", e);
+	e = 0;
+	s = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		multp(a, b);
 	}
-	end = clock();
-	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("Умножение %f\n", time_spent);
-	begin = clock();
+	e = clock();
+	printf("Умножение %d\n", e);
+	s = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		delen(a, b);
 	}
-	end = clock();
-	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("Деление %f\n", time_spent);
-	begin = clock();
+	e = clock();
+	printf("Деление %d\n", e);
+	s = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		comparisoninttwo(a, b);
 	}
-	end = clock();
-	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("Сравнение двух %f\n", time_spent);
-	begin = clock();
+	e = clock();
+
+	printf("Сравнение двух %d\n", s);
+	s = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		comparisonintthree(a, b,c);
 	}
-	end = clock();
-	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("Сравнение трёх %f\n", time_spent);
-	begin = clock();
+	e = clock();
+
+	printf("Сравнение трёх %d\n", e);
+	s = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		sum_asm(a, b);
 	}
-	end = clock();
-	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("Сумма асм %f\n", time_spent);
-	begin = clock();
+	e = clock();
+
+	printf("Сумма асм %d\n", e);
+	s = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		minus_asm(a, b);
 	}
-	end = clock();
-	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("Разность асм %f\n", time_spent);
-	begin = clock();
+	e = clock();
+
+	printf("Разность асм %d\n", e);
+	s = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		multp_asm(a, b);
 	}
-	end = clock();
-	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("Умножение асм %f\n", time_spent);
-	begin = clock();
+	e = clock();
+	printf("Умножение асм %d\n", e);
+	s = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		delen_asm(a, b);
 	}
-	end = clock();
-	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("Деление асм %f\n", time_spent);
-	begin = clock();
+	e = clock();
+	printf("Деление асм %d\n", e);
+	s = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		comparisoninttwo_asm(a, b);
 	}
-	end = clock();
-	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("Сравнение двух асм %f\n", time_spent);
-	begin = clock();
+	e = clock();
+	printf("Сравнение двух асм %d\n", e);
+	s = clock();
 	for (size_t i = 0; i < _i; i++)
 	{
 		comparisonintthree_asm(a, b, c);
 	}
-	end = clock();
-	time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-	printf("Сравнение треёх асм %f\n", time_spent);
+	e = clock();
+	printf("Сравнение треёх асм %d\n", e);
+	s = clock();
+	for (size_t i = 0; i < _i; i++)
+	{
+		change_C(m, b, c);
+	}
+	e = clock();
+	printf("Замена местами двух чисел си %d\n", e);
+	s = clock();
+	for (size_t i = 0; i < _i; i++)
+	{
+		change_asm(m, b, c);
+	}
+	e = clock();
+	printf("Замена местами двух чисел асм %d\n", e);
 }
 
 

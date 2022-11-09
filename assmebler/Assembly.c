@@ -127,7 +127,7 @@ int remainder_asm(int a, int b) {
 	}
 	return a;
 }
-int* Swap_C_asm(int* massiv, int m, int mm) {
+int* change_asm(int* massiv, int m, int mm) {
 	int a = massiv[m], b = massiv[mm];
 	_asm
 	{
